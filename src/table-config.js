@@ -1,25 +1,25 @@
-const { feint } = require('./format');
+const chalk = require('chalk');
 
 const tableConfig = {
   border: {
-    topBody: feint('─'),
-    topJoin: feint('┬'),
-    topLeft: feint('┌'),
-    topRight: feint('┐'),
+    topBody: chalk.dim('─'),
+    topJoin: chalk.dim('┬'),
+    topLeft: chalk.dim('┌'),
+    topRight: chalk.dim('┐'),
 
-    bottomBody: feint('─'),
-    bottomJoin: feint('┴'),
-    bottomLeft: feint('└'),
-    bottomRight: feint('┘'),
+    bottomBody: chalk.dim('─'),
+    bottomJoin: chalk.dim('┴'),
+    bottomLeft: chalk.dim('└'),
+    bottomRight: chalk.dim('┘'),
 
-    bodyLeft: feint('│'),
-    bodyRight: feint('│'),
-    bodyJoin: feint('│'),
+    bodyLeft: chalk.dim('│'),
+    bodyRight: chalk.dim('│'),
+    bodyJoin: chalk.dim('│'),
 
-    joinBody: feint('─'),
-    joinLeft: feint('├'),
-    joinRight: feint('┤'),
-    joinJoin: feint('┼'),
+    joinBody: chalk.dim('─'),
+    joinLeft: chalk.dim('├'),
+    joinRight: chalk.dim('┤'),
+    joinJoin: chalk.dim('┼'),
   },
   columns: {
     0: {

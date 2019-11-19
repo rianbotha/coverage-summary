@@ -4,7 +4,6 @@ const fs = require('fs');
 const chalk = require('chalk');
 const { table } = require('table');
 const tableConfig = require('./src/table-config');
-const { bold } = require('./src/format');
 
 const argv = require('yargs')
   .usage('Usage: $0 <filename> [options]')
@@ -26,7 +25,7 @@ try {
 }
 
 const report = [
-  [bold('Section'), bold('Covered'), bold('Lines'), bold('Coverage %')]
+  [chalk.bold('Section'), chalk.bold('Covered'), chalk.bold('Lines'), chalk.bold('Coverage %')]
 ];
 
 if (xmlString) {
