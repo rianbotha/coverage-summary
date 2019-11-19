@@ -2,6 +2,8 @@
 const xml2js = require('xml2js');
 const fs = require('fs');
 const chalk = require('chalk');
+const { table } = require('table');
+const tableConfig = require('./src/table-config');
 
 const argv = require('yargs')
   .usage('Usage: $0 <filename> [options]')
@@ -22,6 +24,10 @@ try {
   console.log(chalk.red(error));
 }
 
+const report = [
+  ['\033[1mSection', 'Covered', 'Lines', 'Coverage %\033[0m']
+];
+
 if (xmlString) {
   parser.parseString(xmlString, (error, result) => {
     if (!error) {
@@ -29,7 +35,8 @@ if (xmlString) {
       const lines = result.coverage.project[0].metrics[0].ATTR.statements;
       const coveredLines = result.coverage.project[0].metrics[0].ATTR.coveredstatements;
       const coveredPercent = `${Math.round(coveredLines/lines * 100 * 100)/100}%`
-      console.log('All files:', coveredPercent);
+      report.push(['All Files', coveredLines, lines, coveredPercent])
+      console.log(table(report, tableConfig));
     } else {
       console.log(chalk.red(error));
     }
