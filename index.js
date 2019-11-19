@@ -2,6 +2,7 @@
 const xml2js = require('xml2js');
 const fs = require('fs');
 const chalk = require('chalk');
+const importCwd = require('import-cwd');
 const { table } = require('table');
 const tableConfig = require('./src/table-config');
 const summarizePath= require('./src/summarize-path');
@@ -17,7 +18,7 @@ const argv = require('yargs')
 let config = {};
 
 try {
-  config = require(argv['config'] || './.coverage-summary.js');
+  config = importCwd.silent(argv['config'] || './.coverage-summary.js');
 } catch (error) {
   config = { bundles: [] };
 }

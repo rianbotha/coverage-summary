@@ -1,6 +1,6 @@
 {
   "name": "@rianbotha/coverage-summary",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Summarizes istanbul coverage report for specified folders.",
   "main": "index.js",
   "bin": {
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/rianbotha/coverage-summary#readme",
   "dependencies": {
     "chalk": "^3.0.0",
+    "import-cwd": "^3.0.0",
     "table": "^5.4.6",
     "xml2js": "^0.4.22",
     "yargs": "^15.0.0"
