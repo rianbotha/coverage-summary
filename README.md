@@ -54,7 +54,7 @@ module.exports = {
       name: 'Checkout',
     },
   ],
-  threshold: [50, 75];
+  threshold: [50, 75],
 };
 ```
 
