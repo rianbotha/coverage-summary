@@ -1,3 +1,5 @@
+const formatPercent = require('./format-percent');
+
 const summarizePath = (report, paths, name) => {
   let lines = 0;
   let coveredLines = 0;
@@ -12,9 +14,7 @@ const summarizePath = (report, paths, name) => {
     });
   });
 
-  const coveredPercent = `${Math.round(coveredLines / lines * 100 * 100) / 100}%`
-
-  return [name || path[0], coveredLines, lines, coveredPercent];
+  return [name || path[0], coveredLines, lines, formatPercent(coveredLines, lines)];
 };
 
 module.exports = summarizePath;

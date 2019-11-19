@@ -2,10 +2,11 @@
 const xml2js = require('xml2js');
 const fs = require('fs');
 const chalk = require('chalk');
-const importCwd = require('import-cwd');
 const { table } = require('table');
 const tableConfig = require('./src/table-config');
-const summarizePath= require('./src/summarize-path');
+const summarizePath = require('./src/summarize-path');
+const formatPercent = require('./src/format-percent');
+const readConfig = require('./src/read-config');
 
 const argv = require('yargs')
   .usage('Usage: $0 <filename> [options]')
@@ -15,13 +16,7 @@ const argv = require('yargs')
   .alias('v', 'version')
   .argv;
 
-let config = {};
-
-try {
-  config = importCwd.silent(argv['config'] || './.coverage-summary.js');
-} catch (error) {
-  config = { bundles: [] };
-}
+const config = readConfig();
 
 const filename = argv._[0];
 
@@ -45,8 +40,7 @@ if (xmlString) {
     if (!error) {
       const lines = result.coverage.project[0].metrics[0].ATTR.statements;
       const coveredLines = result.coverage.project[0].metrics[0].ATTR.coveredstatements;
-      const coveredPercent = `${Math.round(coveredLines/lines * 100 * 100)/100}%`
-      report.push(['All Files', coveredLines, lines, coveredPercent])
+      report.push(['All Files', coveredLines, lines, formatPercent(coveredLines, lines)])
 
       config.bundles.forEach(bundle => report.push(summarizePath(result, bundle.path, bundle.name)));
 
@@ -56,3 +50,5 @@ if (xmlString) {
     }
   });
 }
+
+exports.config = config;
