@@ -1,23 +1,25 @@
+const { feint } = require('./format');
+
 const tableConfig = {
   border: {
-    topBody: '\033[2m─\033[0m',
-    topJoin: '\033[2m┬\033[0m',
-    topLeft: '\033[2m┌\033[0m',
-    topRight: '\033[2m┐\033[0m',
+    topBody: feint('─'),
+    topJoin: feint('┬'),
+    topLeft: feint('┌'),
+    topRight: feint('┐'),
 
-    bottomBody: '\033[2m─\033[0m',
-    bottomJoin: '\033[2m┴\033[0m',
-    bottomLeft: '\033[2m└\033[0m',
-    bottomRight: '\033[2m┘\033[0m',
+    bottomBody: feint('─'),
+    bottomJoin: feint('┴'),
+    bottomLeft: feint('└'),
+    bottomRight: feint('┘'),
 
-    bodyLeft: '\033[2m│\033[0m',
-    bodyRight: '\033[2m│\033[0m',
-    bodyJoin: '\033[2m│\033[0m',
+    bodyLeft: feint('│'),
+    bodyRight: feint('│'),
+    bodyJoin: feint('│'),
 
-    joinBody: '\033[2m─\033[0m',
-    joinLeft: '\033[2m├\033[0m',
-    joinRight: '\033[2m┤\033[0m',
-    joinJoin: '\033[2m┼\033[0m'
+    joinBody: feint('─'),
+    joinLeft: feint('├'),
+    joinRight: feint('┤'),
+    joinJoin: feint('┼'),
   },
   columns: {
     0: {
