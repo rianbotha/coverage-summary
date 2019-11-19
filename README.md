@@ -21,6 +21,7 @@ coverage-report ./clover.xml --config ./.coverage-summary.js
 
 #### Example output
 ```
+Summary for report generated on 19/11/2019, 08:02:31
 ┌───────────┬─────────┬───────┬────────────┐
 │ Section   │ Covered │ Lines │ Coverage % │
 ├───────────┼─────────┼───────┼────────────┤
@@ -53,6 +54,7 @@ module.exports = {
       name: 'Checkout',
     },
   ],
+  threshold: [50, 75];
 };
 ```
 
@@ -60,3 +62,9 @@ Each bundle should contain a `path`. This is an array of starting paths for part
 `src/sample` will combine coverage numbers for `src/sample` and any sub-directories eg. `src/sample/component`
 
 `name` is optional and will be used in the summary table. The first entry in `path` will be used if name is not defined.
+
+`threshold` is used to colour code percentage values.
+Anything below the first number will be red.
+Below the second number will be yellow.
+And above the second number will be green.
+The default value is `[50, 75]`.

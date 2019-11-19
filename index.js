@@ -43,7 +43,8 @@ if (xmlString) {
       report.push(['All Files', coveredLines, lines, formatPercent(coveredLines, lines)])
 
       config.bundles.forEach(bundle => report.push(summarizePath(result, bundle.path, bundle.name)));
-
+      const date = new Date(parseInt(result.coverage.ATTR.generated)).toLocaleString();
+      console.log('Summary for report generated on', date);
       console.log(table(report, tableConfig));
     } else {
       console.log(chalk.red(error));
