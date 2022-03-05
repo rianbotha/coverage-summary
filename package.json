@@ -2,12 +2,12 @@
   "name": "@rianbotha/coverage-summary",
   "version": "1.1.4",
   "description": "Summarizes istanbul coverage report for specified folders.",
-  "main": "index.js",
+  "exports": "./index.js",
   "bin": {
     "coverage-summary": "index.js"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "repository": {
     "type": "git",
@@ -22,10 +22,11 @@
   "license": "MIT",
   "homepage": "https://github.com/rianbotha/coverage-summary#readme",
   "dependencies": {
-    "chalk": "^3.0.0",
+    "chalk": "^5.0.0",
     "import-cwd": "^3.0.0",
     "table": "^6.8.0",
     "xml2js": "^0.4.23",
     "yargs": "^17.3.1"
-  }
+  },
+  "type": "module"
 }

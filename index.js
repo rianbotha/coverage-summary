@@ -1,14 +1,16 @@
 #!/usr/bin/env node
-const xml2js = require('xml2js');
-const fs = require('fs');
-const chalk = require('chalk');
-const { table } = require('table');
-const tableConfig = require('./src/table-config');
-const summarizePath = require('./src/summarize-path');
-const formatPercent = require('./src/format-percent');
-const readConfig = require('./src/read-config');
+import xml2js from 'xml2js';
+import fs from 'node:fs';
+import chalk from 'chalk';
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import { table } from 'table';
+import { tableConfig } from './src/table-config.js';
+import { summarizePath } from './src/summarize-path.js';
+import { formatPercent } from './src/format-percent.js';
+import { readConfig } from './src/read-config.js';
 
-const argv = require('yargs')
+const argv = yargs(hideBin(process.argv))
   .usage('Usage: $0 <filename> [options]')
   .describe('config', 'Path to config file.')
   .demandCommand(1, 'You need to provide a filename for the istanbul coverage report you want to summarize.')
@@ -51,5 +53,3 @@ if (xmlString) {
     }
   });
 }
-
-exports.config = config;

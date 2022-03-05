@@ -1,6 +1,6 @@
-const chalk = require('chalk');
+import chalk from 'chalk';
 
-const tableConfig = {
+export const tableConfig = {
   border: {
     topBody: chalk.dim('─'),
     topJoin: chalk.dim('┬'),
@@ -39,5 +39,3 @@ const tableConfig = {
     return index === 0 || index === 1 || index === size;
   }
 };
-
-module.exports = tableConfig;
