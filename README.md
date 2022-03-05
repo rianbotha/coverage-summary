@@ -68,3 +68,7 @@ Anything below the first number will be red.
 Below the second number will be yellow.
 And above the second number will be green.
 The default value is `[50, 75]`.
+
+### Limitations
+
+Coverage can only be tracked at folder level. You can't summarize based on individual files.
