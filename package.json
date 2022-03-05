@@ -1,6 +1,6 @@
 {
   "name": "@rianbotha/coverage-summary",
-  "version": "1.1.4",
+  "version": "2.0.0",
   "description": "Summarizes istanbul coverage report for specified folders.",
   "exports": "./index.js",
   "bin": {
