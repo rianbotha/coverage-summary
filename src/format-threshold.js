@@ -1,7 +1,7 @@
-const chalk = require('chalk');
-const readConfig = require('./read-config');
+import chalk from 'chalk';
+import { readConfig } from './read-config.js';
 
-const formatThreshold = (string, number) => {
+export const formatThreshold = (string, number) => {
   const config = readConfig();
   const threshold = (config && config.threshold) || [50, 75];
 
@@ -10,5 +10,3 @@ const formatThreshold = (string, number) => {
 
   return chalk.green(string);
 };
-
-module.exports = formatThreshold;
